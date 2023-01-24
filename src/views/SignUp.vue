@@ -28,6 +28,7 @@
                 </v-flex>
                 <v-flex xs12 class="form-wrapper">
                   <v-text-field
+                    id="username"
                     v-model="username"
                     name="username"
                     label="Username"
@@ -37,7 +38,8 @@
                     mb-0
                   ></v-text-field>
                   <v-text-field
-                     v-model="email"
+                    id="e-mail"
+                    v-model="email"
                     name="email"
                     label="Email"
                     type="text"
@@ -47,6 +49,7 @@
                     prepend-inner-icon="mdi-email-outline"
                   ></v-text-field>
                   <v-text-field
+                    id="password"
                     v-model="password"
                     name="password"
                     label="Password"

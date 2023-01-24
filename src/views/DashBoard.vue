@@ -7,7 +7,7 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn @click="$router.push('/login')"> Sign In </v-btn>
+      <v-btn @click="logOut()"> Log Out </v-btn>
 
       <v-btn @click="$router.push('/')"> Sign Up </v-btn>
 
@@ -213,6 +213,10 @@ export default {
       }
       this.close();
     },
+    logOut(){
+      localStorage.clear()
+      this.$router.push('/login')
+    }
   },
 };
 </script>

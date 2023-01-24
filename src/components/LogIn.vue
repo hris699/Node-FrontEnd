@@ -11,6 +11,7 @@
               <v-card-text>
                 <form ref="form" @submit.prevent="login()">
                   <v-text-field
+                    id="login_email"
                     v-model="email"
                     name="email"
                     label="Email"
@@ -20,6 +21,7 @@
                   ></v-text-field>
 
                   <v-text-field
+                    id="login_password"
                     v-model="password"
                     name="password"
                     label="Password"
@@ -46,6 +48,7 @@
 
 <script>
 import axios from 'axios';
+import setAuthHeader from '../utils/setAuth'
 export default {
   name: "log_in",
   data() {
@@ -68,7 +71,9 @@ export default {
           mode: 'cors'
          })
          .then(res =>{
-             axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
+             localStorage.setItem('access_token', res.data.token)
+             setAuthHeader(res.data.token)
+            //  axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.token}`
              this.$router.push('/dashboard')
              console.log(res.data)
          })
